@@ -1,0 +1,6 @@
+server {
+     listen 8100;	
+    location / {
+        proxy_pass http://prometheus:9090;
+    }
+}

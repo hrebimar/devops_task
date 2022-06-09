@@ -1,0 +1,8 @@
+ cluster.name: my_elk
+ node.name: elk3
+ path.data: /var/lib/elasticsearch
+ path.logs: /var/log/elasticsearch
+ network.host: 0.0.0.0
+ http.port: 9200
+ discovery.seed_hosts: ["elk1", "elk2", "elk3"]
+ cluster.initial_master_nodes: ["elk1", "elk2", "elk3"]
