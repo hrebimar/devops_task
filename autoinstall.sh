@@ -1,7 +1,6 @@
 # příprava kontejnerů
 echo "vytvářím kontejnery"
-cd infrastructure
-pwd
+cd infrastructure # změna adresáře aby fungovaly relative paths, stejně jako všechny další cd
 ./launchcontainers.sh  # deployni a spusť kontejnery s IP adresami ze souboru
 echo "upravuji v kontejnerech hosts"
 sleep 10 #počkej aby byly kontejnery spuštěny
