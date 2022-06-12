@@ -8,8 +8,10 @@ Jako distribuovaný systém jsem zvolil ELK stack. Konfigurován je na 3 servery
 
 Nginx servíruje na portu 80 defaultní stránku, na portu 81 je základní nginx cache, která cacheuje requesty s odezvou 200 po dobu 15s. Nginx status (stub response) je na portu 80 na adrese http:///10.250.112.11/nginx_status .
 
-Prometheus má jako targety nastaveny běžné exportery pro služby běžící na ostatních kontejnerech. JE pro něj ještě na nginx serveru nastavena proxy na port 8100, primárně určena pro kontrolu v průběhu vytváření deploy skriptů.
+Prometheus má jako targety nastaveny běžné exportery pro služby běžící na ostatních kontejnerech. J pro něj ještě na nginx serveru nastavena proxy na port 8100, primárně určena pro kontrolu v průběhu vytváření deploy skriptů.
 
 Vlastní skript napsaný v bashi sbírá load metriku a response status nginx a ukládá je každou minutu do souboru /tmp/logfile
 
 Repozitář ještě obsahuje skripty pro deploy wg sítě, tu se mi ale bohužel zatím nepodařilo zprovoznit, proto nejsou zahrnuty
+
+Edit 12.6. - wg zprovozněn a skripty předělány tak aby kontejnery komunikovaly přes wg síť
