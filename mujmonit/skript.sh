@@ -11,6 +11,11 @@ do
 	curl nginxlb/nginx_status >> $of
 	echo -e "\nnginx headers:" >> $of
 	curl -I nginxlb/nginx_status >> $of
-	echo -e "======================================================\n" >> $of
+	echo -e "IP klientu pripojenych do VPN\n" >> $of
+	for i in {"prometheus","elk1","elk2","elk3"}
+		do
+			ping $i -c 1 -W 1 |grep "seq=1" | cut -d "(" -f 2 | cut -d ")" -f 1 >> $of
+		done
+	echo -e "\n===========================================================" >> $of
 	sleep $interval
 done

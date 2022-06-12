@@ -2,6 +2,14 @@
 echo "vytvářím kontejnery"
 cd infrastructure # změna adresáře aby fungovaly relative paths, stejně jako všechny další cd
 ./launchcontainers.sh  # deployni a spusť kontejnery s IP adresami ze souboru
+# mažu staré klíče a konfigy
+rm ./wg0/*
+# vytvářím klíče a konfigurace
+./makekeys.sh
+./makeconfigs.sh
+#instaluji wg, pushuji configy a startuji wg
+./installwg.sh
+./startwg.sh
 echo "upravuji v kontejnerech hosts"
 sleep 10 #počkej aby byly kontejnery spuštěny
 ./pushhosts.sh # uprav na kontejnerech hosts soubor aby se servery poznaly
